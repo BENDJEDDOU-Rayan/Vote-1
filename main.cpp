@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <random>
+#include <time.h>
 
 using namespace std;
 
@@ -18,14 +19,12 @@ void vote(){
          << endl << "3. Civilization VI"
          << endl << "4. Mario Kart";
 
-    // Génération d'un nombre aléatoire
-    random_device rd;
-    mt19937 gen(rd());
-    uniform_int_distribution<> distr(1, 4);
+    // Initialisation du générateur de nombre
+    srand(time(NULL));
 
     // Boucle 'for' permettant de voter 112 fois aléatoirement
     for(int i = 0; i < 112; ++i){
-        tirage = distr(gen);
+        tirage = 1 + rand() % 5; // Tirer un nombre aléatoirement entre 1 et 4
         if(tirage == 1){
             ++choix_1;
         } else if (tirage == 2){
@@ -43,9 +42,7 @@ void vote(){
          << endl << "1. Counter strike (aka CS GO) : " << choix_1 << " votes"
          << endl << "2. Street Fighter II : " << choix_2 << " votes"
          << endl << "3. Civilization VI : " << choix_3 << " votes"
-         << endl << "4. Mario Kart : " << choix_4 << " votes";
-    cout << endl << "--------------------"
-         << endl << "Le gagnant et ";
+         << endl << "4. Mario Kart : " << choix_4 << " votes" << endl;
 
 }
 
